@@ -18,6 +18,7 @@ public class CronometroJogo extends Thread {
             try {
                 Thread.sleep(1000);
                 segundos++;
+                
                 tela.atualizarTempo(segundos);
             } catch (InterruptedException e) {
                 System.out.println("Cronômetro interrompido: " + e.getMessage());
@@ -25,7 +26,7 @@ public class CronometroJogo extends Thread {
             }
         }
     }
-    public void para(){
+    public void parar(){
         rodando = false;
     }
     public int getSegundos(){
