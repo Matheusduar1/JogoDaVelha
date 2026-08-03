@@ -2,7 +2,7 @@ package model;
 
 import interfaces.Pontuavel;
 
-public class Jogador extends Pessoa implements Pontuavel{
+public class Jogador extends Pessoa implements Pontuavel {
     private int id;
     private int pontuacao;
     private static int totalJogadoresCriados = 0;

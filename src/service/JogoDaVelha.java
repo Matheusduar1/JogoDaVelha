@@ -57,7 +57,7 @@ public class JogoDaVelha {
             if (simbolo == 'X') {
                 resultado = "VITORIA";
             } else {
-                resultado = "DERROTA;"
+                resultado = "DERROTA;";
             }
             jogador.setPontuacao(
                     jogador.calcularPontuacao(resultado, totalJogadas, tempoSegundos)
@@ -70,6 +70,15 @@ public class JogoDaVelha {
             );
         }
     }
+    
+    public String obterHistoricoTexto() {
+        StringBuilder texto = new StringBuilder();
+        for (Jogada jogada : historicoJogadas) {
+            texto.append(jogada.toString()).append("\n");
+        }
+        return texto.toString();
+    }
+    
     public boolean jogoEmAndamento() {
         return resultado.equals("EM ANDAMENTO");
     }

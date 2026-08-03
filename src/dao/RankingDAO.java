@@ -11,12 +11,17 @@ import java.sql.Statement;
 
 
 public class RankingDAO {
-    public void salvarResultado(JogoDaVelha jogo) throws Exception{
+    public void salvarResultado(JogoDaVelha jogo) throws Exception {
         String sqlJogador =
                 "INSERT INTO jogadores (nome, tipo) VALUES (?, ?)";
+        
         String sqlPartida =
                 "INSERT INTO partidas "
                 + "(id_jogador, pontuacao, resultado, total_jogadas, tempo_segundos) "
+                + "VALUES (?, ?, ?, ?, ?)";
+        String sqlJogada =
+                "INSERT INTO jogadas "
+                + "(id_partida, linha, coluna, simbolo, numero_jogada) "
                 + "VALUES (?, ?, ?, ?, ?)";
         
         Connection conn = null;
@@ -29,7 +34,7 @@ public class RankingDAO {
             
             int idJogador;
             
-            try(PreparedStratement stmt = conn.prepareStatement(
+            try(PreparedStatement stmt = conn.prepareStatement(
                     sqlJogador,
                     Statement.RETURN_GENERATED_KEYS
             )){
@@ -53,7 +58,7 @@ public class RankingDAO {
                 stmt.setInt(2, jogador.getPontuacao());
                 stmt.setString(3, jogo.getResultado());
                 stmt.setInt(4, jogo.getTotalJogadas());
-                stmt.setInt(5, jogo,getTempoSegundos());
+                stmt.setInt(5, jogo.getTempoSegundos());
                 
                 stmt.executeUpdate();
                 ResultSet rs = stmt.getGeneratedKeys();
@@ -61,7 +66,7 @@ public class RankingDAO {
                 
                 idPartida = rs.getInt(1);
             }
-            try (PreparedStatement stmt = conn.prepareStatement(sqlJogada)){
+            try (PreparedStatement stmt = conn.prepareStatement(sqlJogada)) {
                 for (Jogada jogada : jogo.getHistoricoJogadas()){
                     stmt.setInt(1, idPartida);
                     stmt.setInt(2, jogada.getLinha());

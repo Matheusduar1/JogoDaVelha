@@ -1,7 +1,7 @@
 package interfaces;
 
 
-public class AtualizavelTela {
+public interface AtualizavelTela {
     
     void atualizarTempo(int segundos);
 }

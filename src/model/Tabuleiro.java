@@ -44,7 +44,7 @@ public class Tabuleiro {
                 return true;
             }
         }
-        if (matriz[0][0] = simbolo
+        if (matriz[0][0] == simbolo
                 && matriz[1][1] == simbolo
                 && matriz[2][2] == simbolo){
             return true;
