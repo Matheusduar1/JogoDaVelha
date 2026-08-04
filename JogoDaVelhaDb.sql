@@ -1,5 +1,6 @@
-CREATE DATABASE db_jogo_da_velha_uc12;
-USE db_jogo_da_velha_uc12;
+#drop database db_jogo_da_velha_uc12;
+CREATE DATABASE db_jogo_velha_uc12;
+USE db_jogo_velha_uc12;
 
 CREATE TABLE jogadores (
     id_jogador INT AUTO_INCREMENT PRIMARY KEY,

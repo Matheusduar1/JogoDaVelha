@@ -57,7 +57,7 @@ public class JogoDaVelha {
             if (simbolo == 'X') {
                 resultado = "VITORIA";
             } else {
-                resultado = "DERROTA;";
+                resultado = "DERROTA";
             }
             jogador.setPontuacao(
                     jogador.calcularPontuacao(resultado, totalJogadas, tempoSegundos)
